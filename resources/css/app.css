@@ -6,4 +6,14 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-darkBg: #2c2420;
+    --color-darkCard: #3d2f2a;
+    --color-goldAccent: #c9a96e;
+    --color-goldLight: #e8d5c4;
+    --color-neutralLight: #faf6f1;
+    --color-neutralSubtle: #f4ede3;
+    --color-textMuted: #8c7b6e;
+    --color-textDark: #5a4a40;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-cormorant: 'Cormorant Garamond', serif;
 }
