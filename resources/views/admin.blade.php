@@ -66,7 +66,7 @@
                     <div class="w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold text-lg shadow-sm shadow-rose-200">
                         W
                     </div>
-                    <span class="font-bold text-slate-800 text-lg tracking-tight">Eternal<span class="text-rose-600">Organizer</span></span>
+                    <span class="font-bold text-slate-800 text-lg tracking-tight">Wedding<span class="text-rose-600">Organizer</span></span>
                 </a>
                 <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-slate-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -97,10 +97,10 @@
                     <span>Portofolio</span>
                 </a>
 
-                <a href="{{ route('admin.testimonials.create') }}"
+                <a href="{{ route('admin.testimonials.index') }}"
                    class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors duration-150 text-slate-600 hover:bg-slate-50 hover:text-slate-900">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <span>Testimoni</span>
+                    <span>Testimonials</span>
                 </a>
 
             </nav>

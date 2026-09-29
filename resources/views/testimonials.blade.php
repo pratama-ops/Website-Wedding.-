@@ -39,7 +39,7 @@
             <div class="h-16 flex items-center px-6 border-b border-slate-100 justify-between">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">W</div>
-                    <span class="font-bold text-slate-800 text-lg tracking-tight">Eternal<span class="text-rose-600">Organizer</span></span>
+                    <span class="font-bold text-slate-800 text-lg tracking-tight">Wedding<span class="text-rose-600">Organizer</span></span>
                 </a>
                 <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-slate-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -122,7 +122,7 @@
                                 <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-50 text-emerald-700">Tampil</span>
                             </div>
                             <p class="text-xs text-slate-600 italic leading-relaxed">
-                                "Sangat puas dengan Eternal Organizer! Semua detail dari dekorasi sampai jalannya acara pernikahan kami sangat rapi dan tepat waktu."
+                                "Sangat puas dengan Wedding Organizer! Semua detail dari dekorasi sampai jalannya acara pernikahan kami sangat rapi dan tepat waktu."
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
