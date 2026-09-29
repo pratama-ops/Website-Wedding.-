@@ -83,16 +83,13 @@
                     <span>Dashboard</span>
                 </button>
 
-                <button @click="activeTab = 'pemesanan'; sidebarOpen = false" 
-                        :class="activeTab === 'pemesanan' ? 'bg-rose-50 text-rose-600 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'"
-                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm transition-colors duration-150">
-                    <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                        <span>Pemesanan Paket</span>
-                    </div>
-                    <!-- Badge info counter (bisa diisi variabel backend nanti) -->
-                    <span class="bg-rose-100 text-rose-700 text-xs font-semibold px-2 py-0.5 rounded-full">3</span>
-                </button>
+                <a href="{{ route('admin.orders.index') }}"
+   class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm transition-colors duration-150 text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+    <div class="flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span>Pemesanan Paket</span>
+    </div>
+</a>
 
                                 <a href="{{ route('admin.portfolio.create') }}"
                    class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors duration-150 text-slate-600 hover:bg-slate-50 hover:text-slate-900">
@@ -211,7 +208,7 @@
                                 <h2 class="text-base font-bold text-slate-800">Pemesanan Terbaru</h2>
                                 <p class="text-xs text-slate-500 mt-0.5">Daftar calon klien yang baru mengajukan paket pernikahan.</p>
                             </div>
-                            <button @click="activeTab = 'pemesanan'" class="text-xs font-semibold text-rose-600 hover:text-rose-700">Lihat Semua →</button>
+                            <a href="{{ route('admin.orders.index') }}" class="text-xs font-semibold text-rose-600 hover:text-rose-700">Lihat Semua →</a>
                         </div>
 
                         <div class="overflow-x-auto">
