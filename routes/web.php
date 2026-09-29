@@ -9,3 +9,7 @@ Route::get('/admin', function () {
 Route::get('/admin/portfolio', function () {
     return view('portfolio');
 })->name('admin.portfolio.create');
+
+Route::get('/admin/orders', function () {
+    return view('orders');
+})->name('admin.orders.index');
