@@ -13,3 +13,7 @@ Route::get('/admin/portfolio', function () {
 Route::get('/admin/orders', function () {
     return view('orders');
 })->name('admin.orders.index');
+
+Route::get('/admin/testimonials', function () {
+    return view('testimonials');
+})->name('admin.testimonials.index');
