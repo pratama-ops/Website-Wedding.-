@@ -26,20 +26,19 @@
 <body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- OVERLAY MOBILE -->
-    <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden" x-cloak></div>
+    <div id="sidebarOverlay" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden"></div>
 
     <div class="flex flex-1 min-h-screen">
         
         <!-- SIDEBAR -->
-        <aside class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
-               :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 -translate-x-full">
             
             <div class="h-16 flex items-center px-6 border-b border-slate-100 justify-between">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">W</div>
                     <span class="font-bold text-slate-800 text-lg tracking-tight">Wedding<span class="text-rose-600">Organizer</span></span>
                 </a>
-                <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-slate-600">
+                <button id="closeSidebar" class="lg:hidden text-slate-400 hover:text-slate-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
@@ -75,14 +74,14 @@
         <div class="flex-1 flex flex-col min-w-0">
             <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 sm:px-8 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <button @click="sidebarOpen = true" class="lg:hidden text-slate-500 hover:text-slate-700 p-2">
+                    <button id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 p-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                     <h1 class="text-lg font-bold text-slate-800">Manajemen Testimoni Klien</h1>
                 </div>
             </header>
 
-            <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto space-y-8" x-data="{ showModal: false, rating: 5 }">
+            <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto space-y-8">
                 
                 <!-- STATISTIK RINGKASAN & TOMBOL TAMBAH -->
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
@@ -103,7 +102,7 @@
                         </div>
                     </div>
 
-                    <button @click="showModal = true" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors flex items-center gap-2">
+                    <button id="btnOpenModal" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
                         <span>Tambah Testimoni</span>
                     </button>
@@ -175,17 +174,17 @@
                 </div>
 
                 <!-- MODAL TAMBAH TESTIMONI -->
-                <div x-show="showModal" class="fixed inset-0 z-50 overflow-y-auto" x-cloak>
+                <div id="testimoniModal" class="hidden fixed inset-0 z-50 overflow-y-auto">
                     <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-                        <div @click="showModal = false" class="fixed inset-0 transition-opacity bg-slate-900/40 backdrop-blur-sm"></div>
+                        <div id="modalOverlay" class="fixed inset-0 transition-opacity bg-slate-900/40 backdrop-blur-sm"></div>
 
                         <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
-                        <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                        <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full relative z-10">
                             <form action="#" method="POST" class="p-6 space-y-4">
                                 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                                     <h3 class="text-sm font-bold text-slate-800">Tambah Testimoni Baru</h3>
-                                    <button type="button" @click="showModal = false" class="text-slate-400 hover:text-slate-600">
+                                    <button type="button" class="btnCloseModal text-slate-400 hover:text-slate-600">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                                     </button>
                                 </div>
@@ -215,7 +214,7 @@
                                 </div>
 
                                 <div class="pt-2 flex justify-end gap-2">
-                                    <button type="button" @click="showModal = false" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs font-medium transition-colors">Batal</button>
+                                    <button type="button" class="btnCloseModal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs font-medium transition-colors">Batal</button>
                                     <button type="submit" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-semibold transition-colors">Simpan Testimoni</button>
                                 </div>
                             </form>
@@ -227,5 +226,42 @@
         </div>
     </div>
 
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('testimoniModal');
+        const btnOpenModal = document.getElementById('btnOpenModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const btnCloseModals = document.querySelectorAll('.btnCloseModal');
+
+        if (btnOpenModal && modal) {
+            btnOpenModal.addEventListener('click', () => modal.classList.remove('hidden'));
+        }
+        if (modalOverlay && modal) {
+            modalOverlay.addEventListener('click', () => modal.classList.add('hidden'));
+        }
+        btnCloseModals.forEach(btn => {
+            btn.addEventListener('click', () => modal.classList.add('hidden'));
+        });
+
+        // Sidebar Logic
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarOverlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        }
+
+        if (openSidebarBtn) openSidebarBtn.addEventListener('click', openSidebar);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+    </script>
 </body>
 </html>

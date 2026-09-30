@@ -26,22 +26,21 @@
 <body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- OVERLAY MOBILE -->
-    <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden" x-cloak></div>
+    <div id="sidebarOverlay" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden"></div>
 
     <div class="flex flex-1 min-h-screen">
         
         <!-- SIDEBAR -->
-        <aside class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
-               :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0">
             
             <div class="h-16 flex items-center px-6 border-b border-slate-100 justify-between">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">W</div>
                     <span class="font-bold text-slate-800 text-lg tracking-tight">Wedding<span class="text-rose-600">Organizer</span></span>
                 </a>
-                <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-slate-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
+                <button id="closeSidebar" class="lg:hidden text-slate-400 hover:text-slate-600">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
             </div>
 
             <!-- NAVIGASI SIDEBAR -->
@@ -51,7 +50,7 @@
                     <span>Dashboard</span>
                 </a>
 
-                <a href="#" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
+                <a href="{{ route('admin.orders.index') }}" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
                     <div class="flex items-center gap-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         <span>Pemesanan Paket</span>
@@ -64,7 +63,7 @@
                     <span>Portofolio</span>
                 </a>
 
-                <a href="#" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
+                <a href="{{ route('admin.testimonials.index') }}" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     <span>Testimoni</span>
                 </a>
@@ -75,7 +74,7 @@
         <div class="flex-1 flex flex-col min-w-0">
             <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 sm:px-8 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <button @click="sidebarOpen = true" class="lg:hidden text-slate-500 hover:text-slate-700 p-2">
+                    <button id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 p-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                     <h1 class="text-lg font-bold text-slate-800">Input Portofolio Baru</h1>
@@ -84,19 +83,7 @@
 
             <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto space-y-6">
                 <!-- FORM INPUT PORTOFOLIO -->
-                <form action="#" method="POST" enctype="multipart/form-data" 
-                      x-data="{ 
-                          images: [], 
-                          handleFileSelect(e) {
-                              const files = Array.from(e.target.files);
-                              files.forEach(file => {
-                                  const reader = new FileReader();
-                                  reader.onload = (e) => { this.images.push(e.target.result); };
-                                  reader.readAsDataURL(file);
-                              });
-                          },
-                          removeImage(index) { this.images.splice(index, 1); }
-                      }">
+                <form action="#" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -142,9 +129,8 @@
                             <!-- AREA UPLOAD FOTO -->
                             <div class="space-y-3">
                                 <label class="block text-xs font-semibold text-slate-700">Dokumentasi Foto</label>
-                                <div class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center hover:bg-slate-50 transition-colors cursor-pointer relative"
-                                     @dragover.prevent="" @drop.prevent="handleFileSelect($event)">
-                                    <input type="file" name="photos[]" multiple accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" @change="handleFileSelect($event)">
+                                <div class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center hover:bg-slate-50 transition-colors cursor-pointer relative" id="dropZone">
+                                    <input type="file" id="fileInput" name="photos[]" multiple accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                                     <div class="space-y-2 pointer-events-none">
                                         <div class="w-12 h-12 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mx-auto">
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -154,16 +140,7 @@
                                 </div>
 
                                 <!-- PREVIEW GAMBAR -->
-                                <div x-show="images.length > 0" class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3" x-cloak>
-                                    <template x-for="(img, index) in images" :key="index">
-                                        <div class="relative rounded-xl overflow-hidden border border-slate-200 aspect-square bg-slate-100">
-                                            <img :src="img" class="w-full h-full object-cover">
-                                            <div x-show="index === 0" class="absolute top-1.5 left-1.5 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">Sampul</div>
-                                            <button type="button" @click="removeImage(index)" class="absolute top-1.5 right-1.5 p-1 bg-slate-900/70 text-white rounded-full hover:bg-rose-600">
-                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                                            </button>
-                                        </div>
-                                    </template>
+                                <div id="imagePreviewContainer" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
                                 </div>
                             </div>
                         </div>
@@ -172,16 +149,16 @@
                         <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
                             <h2 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-3">Pengaturan Publikasi</h2>
 
-                            <div class="space-y-4" x-data="{ isVisible: true, isFeatured: false }">
+                            <div class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <div>
                                         <p class="text-xs font-semibold text-slate-800">Tampilkan di Website</p>
                                         <p class="text-[11px] text-slate-400">Publikasikan secara langsung.</p>
                                     </div>
-                                    <button type="button" @click="isVisible = !isVisible" :class="isVisible ? 'bg-rose-600' : 'bg-slate-200'" class="relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors">
-                                        <span :class="isVisible ? 'translate-x-5' : 'translate-x-0'" class="inline-block h-5 w-5 transform rounded-full bg-white shadow transition"></span>
+                                    <button type="button" id="btnIsVisible" class="bg-rose-600 relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors">
+                                        <span id="knobIsVisible" class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-white shadow transition"></span>
                                     </button>
-                                    <input type="hidden" name="is_visible" :value="isVisible ? 1 : 0">
+                                    <input type="hidden" name="is_visible" id="inputIsVisible" value="1">
                                 </div>
 
                                 <hr class="border-slate-100">
@@ -191,10 +168,10 @@
                                         <p class="text-xs font-semibold text-slate-800">Tandai Unggulan</p>
                                         <p class="text-[11px] text-slate-400">Tampilkan di halaman utama.</p>
                                     </div>
-                                    <button type="button" @click="isFeatured = !isFeatured" :class="isFeatured ? 'bg-rose-600' : 'bg-slate-200'" class="relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors">
-                                        <span :class="isFeatured ? 'translate-x-5' : 'translate-x-0'" class="inline-block h-5 w-5 transform rounded-full bg-white shadow transition"></span>
+                                    <button type="button" id="btnIsFeatured" class="bg-slate-200 relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors">
+                                        <span id="knobIsFeatured" class="translate-x-0 inline-block h-5 w-5 transform rounded-full bg-white shadow transition"></span>
                                     </button>
-                                    <input type="hidden" name="is_featured" :value="isFeatured ? 1 : 0">
+                                    <input type="hidden" name="is_featured" id="inputIsFeatured" value="0">
                                 </div>
                             </div>
 
@@ -216,5 +193,128 @@
         </div>
     </div>
 
+    <script>
+        // Sidebar Logic
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarOverlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        }
+
+        if (openSidebarBtn) openSidebarBtn.addEventListener('click', openSidebar);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Toggle Buttons Logic
+        const btnIsVisible = document.getElementById('btnIsVisible');
+        const knobIsVisible = document.getElementById('knobIsVisible');
+        const inputIsVisible = document.getElementById('inputIsVisible');
+        let isVisible = true;
+
+        if (btnIsVisible) {
+            btnIsVisible.addEventListener('click', () => {
+                isVisible = !isVisible;
+                btnIsVisible.className = isVisible 
+                    ? 'bg-rose-600 relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors' 
+                    : 'bg-slate-200 relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors';
+                knobIsVisible.className = isVisible 
+                    ? 'translate-x-5 inline-block h-5 w-5 transform rounded-full bg-white shadow transition' 
+                    : 'translate-x-0 inline-block h-5 w-5 transform rounded-full bg-white shadow transition';
+                inputIsVisible.value = isVisible ? '1' : '0';
+            });
+        }
+
+        const btnIsFeatured = document.getElementById('btnIsFeatured');
+        const knobIsFeatured = document.getElementById('knobIsFeatured');
+        const inputIsFeatured = document.getElementById('inputIsFeatured');
+        let isFeatured = false;
+
+        if (btnIsFeatured) {
+            btnIsFeatured.addEventListener('click', () => {
+                isFeatured = !isFeatured;
+                btnIsFeatured.className = isFeatured 
+                    ? 'bg-rose-600 relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors' 
+                    : 'bg-slate-200 relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors';
+                knobIsFeatured.className = isFeatured 
+                    ? 'translate-x-5 inline-block h-5 w-5 transform rounded-full bg-white shadow transition' 
+                    : 'translate-x-0 inline-block h-5 w-5 transform rounded-full bg-white shadow transition';
+                inputIsFeatured.value = isFeatured ? '1' : '0';
+            });
+        }
+
+        // Image Upload Logic
+        const fileInput = document.getElementById('fileInput');
+        const dropZone = document.getElementById('dropZone');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        let images = [];
+
+        function renderImages() {
+            imagePreviewContainer.innerHTML = '';
+            if (images.length === 0) {
+                imagePreviewContainer.classList.add('hidden');
+                return;
+            }
+            imagePreviewContainer.classList.remove('hidden');
+            images.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'relative rounded-xl overflow-hidden border border-slate-200 aspect-square bg-slate-100';
+                
+                const imgEl = document.createElement('img');
+                imgEl.src = img;
+                imgEl.className = 'w-full h-full object-cover';
+                div.appendChild(imgEl);
+
+                if (index === 0) {
+                    const badge = document.createElement('div');
+                    badge.className = 'absolute top-1.5 left-1.5 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow';
+                    badge.textContent = 'Sampul';
+                    div.appendChild(badge);
+                }
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'absolute top-1.5 right-1.5 p-1 bg-slate-900/70 text-white rounded-full hover:bg-rose-600';
+                btn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+                btn.addEventListener('click', () => {
+                    images.splice(index, 1);
+                    renderImages();
+                });
+                div.appendChild(btn);
+
+                imagePreviewContainer.appendChild(div);
+            });
+        }
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => { 
+                    images.push(e.target.result); 
+                    renderImages();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        if (fileInput) {
+            fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+        }
+        if (dropZone) {
+            dropZone.addEventListener('dragover', (e) => { e.preventDefault(); });
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                handleFiles(e.dataTransfer.files);
+            });
+        }
+    </script>
 </body>
 </html>
