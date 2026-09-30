@@ -26,20 +26,19 @@
 <body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- OVERLAY MOBILE -->
-    <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden" x-cloak></div>
+    <div id="sidebarOverlay" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden"></div>
 
     <div class="flex flex-1 min-h-screen">
         
         <!-- SIDEBAR -->
-        <aside class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
-               :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 -translate-x-full">
             
             <div class="h-16 flex items-center px-6 border-b border-slate-100 justify-between">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">W</div>
                     <span class="font-bold text-slate-800 text-lg tracking-tight">Wedding<span class="text-rose-600">Organizer</span></span>
                 </a>
-                <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-slate-600">
+                <button id="closeSidebar" class="lg:hidden text-slate-400 hover:text-slate-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
@@ -64,7 +63,7 @@
                     <span>Portofolio</span>
                 </a>
 
-                <a href="#" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
+                <a href="{{ route('admin.testimonials.index') }}" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     <span>Testimoni</span>
                 </a>
@@ -75,14 +74,14 @@
         <div class="flex-1 flex flex-col min-w-0">
             <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 sm:px-8 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <button @click="sidebarOpen = true" class="lg:hidden text-slate-500 hover:text-slate-700 p-2">
+                    <button id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 p-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                     <h1 class="text-lg font-bold text-slate-800">Daftar Pemesanan Paket</h1>
                 </div>
             </header>
 
-            <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto space-y-6" x-data="{ filterStatus: 'all', search: '' }">
+            <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto space-y-6">
                 
                 <!-- HEADER & RINGKASAN STATISTIK -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -121,13 +120,13 @@
                 <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div class="relative flex-1">
                         <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                        <input type="text" x-model="search" placeholder="Cari nama pemesan, paket, atau lokasi..." class="w-full pl-10 pr-4 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500">
+                        <input type="text" id="searchInput" placeholder="Cari nama pemesan, paket, atau lokasi..." class="w-full pl-10 pr-4 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500">
                     </div>
 
-                    <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
-                        <button @click="filterStatus = 'all'" :class="filterStatus === 'all' ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap">Semua</button>
-                        <button @click="filterStatus = 'pending'" :class="filterStatus === 'pending' ? 'bg-amber-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap">Pending</button>
-                        <button @click="filterStatus = 'confirmed'" :class="filterStatus === 'confirmed' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap">Dikonfirmasi</button>
+                    <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0" id="filterButtons">
+                        <button data-filter="all" class="filter-btn bg-slate-900 text-white px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap">Semua</button>
+                        <button data-filter="pending" class="filter-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap">Pending</button>
+                        <button data-filter="confirmed" class="filter-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap">Dikonfirmasi</button>
                     </div>
                 </div>
 
@@ -197,5 +196,43 @@
         </div>
     </div>
 
+    <script>
+        // Sidebar Logic
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarOverlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        }
+
+        if (openSidebarBtn) openSidebarBtn.addEventListener('click', openSidebar);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Filter Logic Mockup
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.className = 'filter-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap';
+                });
+                if (btn.dataset.filter === 'all') {
+                    btn.className = 'filter-btn bg-slate-900 text-white px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap';
+                } else if (btn.dataset.filter === 'pending') {
+                    btn.className = 'filter-btn bg-amber-600 text-white px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap';
+                } else if (btn.dataset.filter === 'confirmed') {
+                    btn.className = 'filter-btn bg-emerald-600 text-white px-3.5 py-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
