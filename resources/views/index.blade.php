@@ -177,29 +177,29 @@
                 
                 <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mt-8">
                     <!-- Silver Package -->
-                    <div class="package-card p-8 relative bg-white border border-goldLight shadow-sm hover:shadow-md transition-shadow">
+                    <div class="package-card p-8 relative bg-white border border-goldLight shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
                         <h3 class="font-display text-xl mb-2 text-darkBg font-semibold">Silver Package</h3>
                         <div class="mb-1"><span class="font-display text-2xl text-darkBg font-semibold">Rp 3.500.000</span></div>
                         <p class="text-xs mb-6 text-[#b8a89a] line-through">Rp 4.500.000</p>
                         <div class="h-px mb-6 bg-goldLight"></div>
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3 mb-8 flex-1">
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Efektif Bekerja Di H-14</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>4 Orang PIC Di Hari H</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Rundown Acara</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>1x Meeting Keluarga</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Koordinasi Vendor</li>
                         </ul>
-                        <button data-modal-package="Silver Package" class="w-full py-3.5 text-sm font-medium tracking-widest uppercase transition-all btn-outline-gold">Pilih Paket</button>
+                        <button data-modal-package="Silver Package" class="w-full py-3.5 text-sm font-medium tracking-widest uppercase transition-all btn-outline-gold mt-auto">Pilih Paket</button>
                     </div>
 
                     <!-- Gold Package (Popular) -->
-                    <div class="package-card p-8 relative bg-darkBg text-white shadow-xl transform md:-translate-y-2 border border-goldAccent">
+                    <div class="package-card p-8 relative bg-darkBg text-white shadow-xl border border-goldAccent flex flex-col h-full">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-goldAccent text-white text-xs tracking-widest uppercase px-5 py-1.5 font-semibold">Most Popular</div>
                         <h3 class="font-display text-xl mb-2 text-goldAccent font-semibold">Gold Package</h3>
                         <div class="mb-1"><span class="font-display text-2xl text-white font-semibold">Rp 5.000.000</span></div>
                         <p class="text-xs mb-6 text-textMuted line-through">Rp 5.500.000</p>
                         <div class="h-px mb-6 bg-[#3d2f2a]"></div>
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3 mb-8 flex-1">
                             <li class="flex items-start gap-3 text-sm text-goldLight"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Efektif Bekerja Di H-30</li>
                             <li class="flex items-start gap-3 text-sm text-goldLight"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>6 Orang PIC Di Hari H</li>
                             <li class="flex items-start gap-3 text-sm text-goldLight"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Rundown Acara</li>
@@ -209,16 +209,16 @@
                             <li class="flex items-start gap-3 text-sm text-goldLight"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>HT Dan Seragam</li>
                             <li class="flex items-start gap-3 text-sm text-goldLight"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Report Event</li>
                         </ul>
-                        <button data-modal-package="Gold Package" class="w-full py-3.5 text-sm font-medium tracking-widest uppercase transition-all btn-gold">Pilih Paket</button>
+                        <button data-modal-package="Gold Package" class="w-full py-3.5 text-sm font-medium tracking-widest uppercase transition-all btn-gold mt-auto">Pilih Paket</button>
                     </div>
 
                     <!-- Platinum Package -->
-                    <div class="package-card p-8 relative bg-white border border-goldLight shadow-sm hover:shadow-md transition-shadow">
+                    <div class="package-card p-8 relative bg-white border border-goldLight shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
                         <h3 class="font-display text-xl mb-2 text-darkBg font-semibold">Platinum Package</h3>
                         <div class="mb-1"><span class="font-display text-2xl text-darkBg font-semibold">Rp 8.000.000</span></div>
                         <p class="text-xs mb-6 text-[#b8a89a] line-through">Rp 9.500.000</p>
                         <div class="h-px mb-6 bg-goldLight"></div>
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3 mb-8 flex-1">
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Efektif Bekerja Di H-60</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>8 Orang PIC Di Hari H</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Rundown Acara</li>
@@ -229,7 +229,7 @@
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Report Event + Album</li>
                             <li class="flex items-start gap-3 text-sm text-textDark"><span class="text-goldAccent mt-0.5 shrink-0 font-bold">✓</span>Dokumentasi Eksklusif</li>
                         </ul>
-                        <button data-modal-package="Platinum Package" class="w-full py-3.5 text-sm font-medium tracking-widest uppercase transition-all btn-outline-gold">Pilih Paket</button>
+                        <button data-modal-package="Platinum Package" class="w-full py-3.5 text-sm font-medium tracking-widest uppercase transition-all btn-outline-gold mt-auto">Pilih Paket</button>
                     </div>
                 </div>
             </div>
