@@ -246,24 +246,60 @@
                     <button data-modal-package="Galeri Portfolio Lengkap" class="hidden sm:flex items-center gap-2 text-sm text-goldAccent border-b border-goldAccent pb-0.5 hover:text-[#a67c52] transition-colors">Lihat Semua <span>→</span></button>
                 </div>
                 
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-                    <div class="gallery-item aspect-[3/4] overflow-hidden group relative">
-                        <img alt="Wedding photography 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1606216794050-6ff7db8cb43d?w=800&h=1000&fit=crop&auto=format" data-fallback="https://placehold.co/600x800/2c2420/c9a96e?text=Portfolio+1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="gallery-item aspect-[4/3] overflow-hidden rounded-xl group relative shadow-sm border border-goldLight/40 hover:shadow-xl transition-all duration-300">
+                        <img alt="Wedding photography 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://images.unsplash.com/photo-1606216794050-6ff7db8cb43d?w=800&h=600&fit=crop&auto=format" data-fallback="https://placehold.co/800x600/2c2420/c9a96e?text=Portfolio+1">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                            <div>
+                                <span class="text-xs text-goldAccent font-semibold tracking-wider uppercase block mb-1">Wedding Day</span>
+                                <h4 class="text-white font-display text-lg font-medium">The Special Moments</h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item aspect-square overflow-hidden group relative">
-                        <img alt="Wedding photography 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=800&fit=crop&auto=format" data-fallback="https://placehold.co/600x800/2c2420/c9a96e?text=Portfolio+2">
+                    <div class="gallery-item aspect-[4/3] overflow-hidden rounded-xl group relative shadow-sm border border-goldLight/40 hover:shadow-xl transition-all duration-300">
+                        <img alt="Wedding photography 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop&auto=format" data-fallback="https://placehold.co/800x600/2c2420/c9a96e?text=Portfolio+2">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                            <div>
+                                <span class="text-xs text-goldAccent font-semibold tracking-wider uppercase block mb-1">Pre-Wedding</span>
+                                <h4 class="text-white font-display text-lg font-medium">Romantic Session</h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item aspect-square overflow-hidden group relative">
-                        <img alt="Wedding photography 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1712068534065-f56c36e21759?w=800&h=800&fit=crop&auto=format" data-fallback="https://placehold.co/600x800/2c2420/c9a96e?text=Portfolio+3">
+                    <div class="gallery-item aspect-[4/3] overflow-hidden rounded-xl group relative shadow-sm border border-goldLight/40 hover:shadow-xl transition-all duration-300">
+                        <img alt="Wedding photography 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://images.unsplash.com/photo-1712068534065-f56c36e21759?w=800&h=600&fit=crop&auto=format" data-fallback="https://placehold.co/800x600/2c2420/c9a96e?text=Portfolio+3">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                            <div>
+                                <span class="text-xs text-goldAccent font-semibold tracking-wider uppercase block mb-1">Akad Nikah</span>
+                                <h4 class="text-white font-display text-lg font-medium">Sacred Ceremony</h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item aspect-[3/4] overflow-hidden group relative">
-                        <img alt="Wedding photography 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1606217239582-d9f72323bcd7?w=800&h=1000&fit=crop&auto=format" data-fallback="https://placehold.co/600x800/2c2420/c9a96e?text=Portfolio+4">
+                    <div class="gallery-item aspect-[4/3] overflow-hidden rounded-xl group relative shadow-sm border border-goldLight/40 hover:shadow-xl transition-all duration-300">
+                        <img alt="Wedding photography 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://images.unsplash.com/photo-1606217239582-d9f72323bcd7?w=800&h=600&fit=crop&auto=format" data-fallback="https://placehold.co/800x600/2c2420/c9a96e?text=Portfolio+4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                            <div>
+                                <span class="text-xs text-goldAccent font-semibold tracking-wider uppercase block mb-1">Resepsi</span>
+                                <h4 class="text-white font-display text-lg font-medium">Celebration of Love</h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item aspect-square overflow-hidden group relative">
-                        <img alt="Wedding photography 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1524777313293-86d2ab467344?w=800&h=800&fit=crop&auto=format" data-fallback="https://placehold.co/600x800/2c2420/c9a96e?text=Portfolio+5">
+                    <div class="gallery-item aspect-[4/3] overflow-hidden rounded-xl group relative shadow-sm border border-goldLight/40 hover:shadow-xl transition-all duration-300">
+                        <img alt="Wedding photography 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://images.unsplash.com/photo-1524777313293-86d2ab467344?w=800&h=600&fit=crop&auto=format" data-fallback="https://placehold.co/800x600/2c2420/c9a96e?text=Portfolio+5">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                            <div>
+                                <span class="text-xs text-goldAccent font-semibold tracking-wider uppercase block mb-1">Dekorasi</span>
+                                <h4 class="text-white font-display text-lg font-medium">Elegant Ambience</h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item aspect-square overflow-hidden group relative">
-                        <img alt="Wedding photography 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1606490208247-b65be3d94cd1?w=800&h=800&fit=crop&auto=format" data-fallback="https://placehold.co/600x800/2c2420/c9a96e?text=Portfolio+6">
+                    <div class="gallery-item aspect-[4/3] overflow-hidden rounded-xl group relative shadow-sm border border-goldLight/40 hover:shadow-xl transition-all duration-300">
+                        <img alt="Wedding photography 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://images.unsplash.com/photo-1606490208247-b65be3d94cd1?w=800&h=600&fit=crop&auto=format" data-fallback="https://placehold.co/800x600/2c2420/c9a96e?text=Portfolio+6">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                            <div>
+                                <span class="text-xs text-goldAccent font-semibold tracking-wider uppercase block mb-1">Detail & Ring</span>
+                                <h4 class="text-white font-display text-lg font-medium">Precious Details</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
