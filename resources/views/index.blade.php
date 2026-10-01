@@ -150,6 +150,23 @@
             </div>
         </section>
 
+        <!-- Interactive Date Checker Section -->
+        <section class="date-checker-background py-20 lg:py-28 px-6 relative bg-center bg-cover">
+            <div class="absolute inset-0 bg-[#2c2420]/85"></div>
+            <div class="relative z-10 max-w-2xl mx-auto text-center text-white">
+                <p class="text-xs tracking-[0.3em] uppercase text-goldAccent mb-3 font-semibold">Cek Sekarang</p>
+                <h2 class="font-display text-4xl md:text-5xl mb-4">Cek <span class="text-goldAccent italic">Tanggal Pernikahan</span></h2>
+                <p class="text-[#e8d5c4] mb-10 text-sm leading-relaxed">Cek dulu yuk ketersediaan tanggal pernikahanmu :)</p>
+                
+                <form id="date-checker-form" class="flex flex-col sm:flex-row gap-0 max-w-md mx-auto shadow-2xl">
+                    <input id="wedding-date-input" class="form-input flex-1 px-5 py-4 text-sm text-darkBg bg-white focus:outline-none" type="date" required>
+                    <button type="submit" class="btn-gold px-8 py-4 text-sm font-medium tracking-widest uppercase whitespace-nowrap">Cek Tanggal →</button>
+                </form>
+                
+                <div id="date-result" class="mt-6 text-sm font-medium hidden"></div>
+            </div>
+        </section>
+
         <!-- Pricing / Package Section -->
         <section id="booking" class="py-20 lg:py-28 px-6 bg-neutralSubtle">
             <div class="max-w-7xl mx-auto">
@@ -256,22 +273,6 @@
             </div>
         </section>
 
-        <!-- Interactive Date Checker Section -->
-        <section class="date-checker-background py-20 lg:py-28 px-6 relative bg-center bg-cover">
-            <div class="absolute inset-0 bg-[#2c2420]/85"></div>
-            <div class="relative z-10 max-w-2xl mx-auto text-center text-white">
-                <p class="text-xs tracking-[0.3em] uppercase text-goldAccent mb-3 font-semibold">Cek Sekarang</p>
-                <h2 class="font-display text-4xl md:text-5xl mb-4">Cek <span class="text-goldAccent italic">Tanggal Pernikahan</span></h2>
-                <p class="text-[#e8d5c4] mb-10 text-sm leading-relaxed">Cek dulu yuk ketersediaan tanggal pernikahanmu :)</p>
-                
-                <form id="date-checker-form" class="flex flex-col sm:flex-row gap-0 max-w-md mx-auto shadow-2xl">
-                    <input id="wedding-date-input" class="form-input flex-1 px-5 py-4 text-sm text-darkBg bg-white focus:outline-none" type="date" required>
-                    <button type="submit" class="btn-gold px-8 py-4 text-sm font-medium tracking-widest uppercase whitespace-nowrap">Cek Tanggal →</button>
-                </form>
-                
-                <div id="date-result" class="mt-6 text-sm font-medium hidden"></div>
-            </div>
-        </section>
 
         <!-- Testimonials Section -->
         <section class="py-20 lg:py-28 px-6 bg-neutralSubtle">
